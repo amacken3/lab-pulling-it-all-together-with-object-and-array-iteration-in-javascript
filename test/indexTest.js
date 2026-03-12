@@ -66,3 +66,24 @@ describe('Basketball Stats', function () {
     });
   });
 });
+
+
+//tests for bonus questions
+
+//describe('playerWithLongestName', () => {
+ //it('returns the player with the longest name', () => {
+    //expect(playerWithLongestName()).to.equal("Bismack Biyombo");
+  //});
+//})
+
+//describe("mostPointsScored", () => {
+//    it("returns the player who scored the most points", () => {
+//       expect(mostPointsScored()).to.equal("Ben Gordon");
+//    });
+//});
+
+//describe("winningTeam", () => {
+//    it("returns the team with the most total points", () => {
+//        expect(winningTeam()).to.equal("Brooklyn Nets");
+//    });
+//});

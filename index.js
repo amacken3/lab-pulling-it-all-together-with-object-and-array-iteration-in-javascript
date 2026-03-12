@@ -151,6 +151,7 @@ function teamColors(teamName) {
         }
     } 
 }
+
 //array of both team names
 function teamNames() {
     const game = gameObject();
@@ -163,6 +164,7 @@ function teamNames() {
 
     return names;
 }
+
 //array of jersey numbers given a team name
 function playerNumbers(teamName) {
     const game = gameObject();
@@ -179,6 +181,7 @@ function playerNumbers(teamName) {
 
     return numbers;
 }
+
 //all player stats given a player name
 function playerStats(playerName) {
     const game = gameObject();
@@ -192,6 +195,7 @@ function playerStats(playerName) {
         }
     }
 }
+
 //rebounds for player with the biggest shoe size
 function bigShoeRebounds() {
     const game = gameObject();
@@ -212,4 +216,61 @@ function bigShoeRebounds() {
     }
 
     return reboundsForBiggestShoe;
+}
+
+//which player scored the most poinsts
+function mostPointsScored() {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+    let highestPoints = 0;
+    let topPlayer = "";
+
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            const player = team.players[playerNameKey];
+
+            if (player.points > highestPoints) {
+                highestPoints = player.points;
+                topPlayer = playerNameKey;
+            }
+        }
+    }
+
+    return topPlayer;
+}
+
+//player with the longest name 
+function playerWithLongestName() {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+    let longestName = "";
+
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            if (playerNameKey.length > longestName.length)
+                longestName = playerNameKey;
+        }
+    }
+    return longestName;
+}
+
+//which team had the most total points
+function winningTeam() {
+    const game = gameObject();
+    let homeTotal = 0;
+    let awayTotal = 0;
+
+    for (const playerNameKey in game.home.players) {
+        homeTotal += game.home.players[playerNameKey].points;
+    }
+
+    for (const playerNameKey in game.away.players) {
+        awayTotal += game.away.players[playerNameKey].points;
+    }
+
+    if (homeTotal > awayTotal) {
+        return game.home.teamName;
+    } else {
+        return game.away.teamName;
+    }
 }
