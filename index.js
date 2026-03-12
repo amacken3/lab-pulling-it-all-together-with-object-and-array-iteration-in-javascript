@@ -140,7 +140,7 @@ function shoeSize(playerName) {
         }
     }
 }
-
+//team colors given a team name
 function teamColors(teamName) {
     const game = gameObject();
     const teams = [game.home, game.away];
@@ -151,7 +151,7 @@ function teamColors(teamName) {
         }
     } 
 }
-
+//array of both team names
 function teamNames() {
     const game = gameObject();
     const teams = [game.home, game.away];
@@ -163,7 +163,7 @@ function teamNames() {
 
     return names;
 }
-
+//array of jersey numbers given a team name
 function playerNumbers(teamName) {
     const game = gameObject();
     const teams = [game.home, game.away];
@@ -179,7 +179,7 @@ function playerNumbers(teamName) {
 
     return numbers;
 }
-
+//all player stats given a player name
 function playerStats(playerName) {
     const game = gameObject();
     const teams = [game.home, game.away];
@@ -192,7 +192,7 @@ function playerStats(playerName) {
         }
     }
 }
-
+//rebounds for player with the biggest shoe size
 function bigShoeRebounds() {
     const game = gameObject();
     const teams = [game.home, game.away];
