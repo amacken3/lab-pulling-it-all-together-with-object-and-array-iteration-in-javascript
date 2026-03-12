@@ -114,3 +114,102 @@ function gameObject() {
         },
     };
 }
+//number of points scored given a player name
+function numPointsScored(playerName) {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+    
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            if (playerNameKey === playerName) {
+                return team.players[playerNameKey].points;
+            }
+        }
+    }
+}
+//shoe size given a player name
+function shoeSize(playerName) {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            if (playerNameKey === playerName) {
+                return team.players[playerNameKey].shoe;
+            }
+        }
+    }
+}
+
+function teamColors(teamName) {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+
+    for (const team of teams) {
+        if (team.teamName === teamName) {
+            return team.colors;
+        }
+    } 
+}
+
+function teamNames() {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+    const names = [];
+
+    for (const team of teams) {
+       names.push(team.teamName);
+    }
+
+    return names;
+}
+
+function playerNumbers(teamName) {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+    const numbers = [];
+
+    for (const team of teams) {
+        if (team.teamName === teamName) {
+            for (const playerNameKey in team.players) {
+                numbers.push(team.players[playerNameKey].number);
+            }
+        }
+    }
+
+    return numbers;
+}
+
+function playerStats(playerName) {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            if (playerNameKey === playerName) {
+                return team.players[playerNameKey];
+            }
+        }
+    }
+}
+
+function bigShoeRebounds() {
+    const game = gameObject();
+    const teams = [game.home, game.away];
+
+    let biggestShoeSize = 0;
+    let reboundsForBiggestShoe = 0;
+
+    for (const team of teams) {
+        for (const playerNameKey in team.players) {
+            const player = team.players[playerNameKey];
+
+            if (player.shoe > biggestShoeSize) {
+                biggestShoeSize = player.shoe;
+                reboundsForBiggestShoe = player.rebounds;
+            }
+        }
+    }
+
+    return reboundsForBiggestShoe;
+}
